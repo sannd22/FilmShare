@@ -107,17 +107,18 @@ class SignUpViewController: UIViewController {
                             self.displayError("Error saving user data.")
                         }
                     }
+                    // Transition to the Home Screen
                     self.transitionToHome()
                 }
-                
-                
             }
-            // Transition to the Home Screen
         }
     }
     
     func transitionToHome() {
+        let tabViewController = storyboard?.instantiateViewController(identifier: Constants.StoryBoard.tabViewController) as? UITabBarController
         
+        view.window?.rootViewController = tabViewController
+        view.window?.makeKeyAndVisible()
     }
     
     func displayError(_ message:String) {
